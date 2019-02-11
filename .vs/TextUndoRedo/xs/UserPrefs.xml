@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{CB9BB157-A787-5521-3846-212371E4138D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/UIController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/CustomInputField.cs">
     <Files>
-      <File FileName="Assets/Script/UIController.cs" Line="16" Column="28" />
-      <File FileName="Assets/Script/StackController.cs" Line="10" Column="5" />
-      <File FileName="Assets/Script/InputManager.cs" Line="28" Column="118" />
+      <File FileName="Assets/Script/UIController.cs" Line="66" Column="1" />
+      <File FileName="Assets/Script/StackController.cs" Line="35" Column="10" />
+      <File FileName="Assets/Script/InputManager.cs" Line="37" Column="10" />
       <File FileName="Assets/Script/Command.cs" Line="26" Column="30" />
+      <File FileName="Assets/Script/CustomInputField.cs" Line="15" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
