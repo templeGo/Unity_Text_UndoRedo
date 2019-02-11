@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void RecordText()
@@ -53,12 +53,16 @@ public class UIController : MonoBehaviour
 
     public void UndoText()
     {
-
+        m_StackController.Undo();
+        m_StackController.currentCommand.Undo();
+        m_InputField.MoveTextEnd(false);
     }
 
     public void RedoText()
     {
-
+        m_StackController.Redo();
+        m_StackController.currentCommand.Redo();
+        m_InputField.MoveTextEnd(false);
     }
 
 }
