@@ -11,13 +11,7 @@ public class InputManager : MonoBehaviour
     public RecordEventHandler RecordEvent;
     public UndoEventHandler UndoEvent;
     public RedoEventHandler RedoEvent;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         CheckInput();
@@ -27,11 +21,19 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Backspace))
         {
-            RecordEvent();
+            if(RecordEvent != null)
+                RecordEvent();
         }
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
+
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Z))
         {
-            UndoEvent();
+            if (RedoEvent != null)
+                RedoEvent();
+        }
+        else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
+        {
+            if (UndoEvent != null)
+                UndoEvent();
         }
     }
 }
