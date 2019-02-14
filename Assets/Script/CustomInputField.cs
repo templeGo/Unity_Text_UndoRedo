@@ -1,29 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CustomInputField : InputField
 {
 
-    //TODO inputField選択時に全選択になるのを解除しようと思うも、できず(ActiveInputFieldが呼ばれてない)
+    private bool Deactivated = true;
 
-    private bool Focused = false;
-
-    new public void ActivateInputField()
+    public override void OnDeselect(BaseEventData eventData)
     {
-        Focused = true;
-        base.ActivateInputField();
+        Deactivated = true;
+        DeactivateInputField();
+        base.OnDeselect(eventData);
     }
 
-    protected override void LateUpdate()
+    public override void OnPointerClick(PointerEventData eventData)
     {
-        base.LateUpdate();
-        if (Focused)
+        if (Deactivated)
         {
-            Debug.Log("Focused"+ Focused);
             MoveTextEnd(true);
-            Focused = false;
+            Deactivated = false;
         }
+        base.OnPointerClick(eventData);
     }
 }
