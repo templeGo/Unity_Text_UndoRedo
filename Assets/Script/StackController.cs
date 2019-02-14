@@ -14,7 +14,7 @@ public class StackController : MonoBehaviour
         UndoStack.Push(command);
         RedoStack.Clear();
         CheckStackWeight();
-        Debug.Log("Undocount" + UndoStack.Count + "Redocount" + RedoStack.Count);
+        //Debug.Log("Undocount" + UndoStack.Count + "Redocount" + RedoStack.Count);
     }
 
     public void Undo()
@@ -24,7 +24,7 @@ public class StackController : MonoBehaviour
         
         currentCommand = UndoStack.Pop();
         RedoStack.Push(currentCommand);
-        Debug.Log("Undocount" + UndoStack.Count + "Redocount" + RedoStack.Count);
+        //Debug.Log("Undocount" + UndoStack.Count + "Redocount" + RedoStack.Count);
     }
 
     public void Redo()
@@ -34,7 +34,7 @@ public class StackController : MonoBehaviour
         
         currentCommand = RedoStack.Pop();
         UndoStack.Push(currentCommand);
-        Debug.Log("Undocount" + UndoStack.Count + "Redocount" + RedoStack.Count);
+        //Debug.Log("Undocount" + UndoStack.Count + "Redocount" + RedoStack.Count);
     }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class StackController : MonoBehaviour
             {
                 UndoStack.Push(WorkStack.Pop());
             }
+           
         }
-
-        // TODO GCを解放する
+        System.GC.Collect();
     }
 }
